@@ -26,3 +26,6 @@ https://nodejs.org/en/
 | `npm run start` |     To start local server      |
 | `npm run build` |    To build for Production     |
 | `npm run test`  |       To run test cases        |
+
+Note: Fake API used to fetch the data
+https://instantwebtools.net/fake-rest-api#create-airline
