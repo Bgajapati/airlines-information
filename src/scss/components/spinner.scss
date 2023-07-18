@@ -1,0 +1,36 @@
+@import "../../../src/scss/common/variables";
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+
+  .loading-text {
+    font: $font-paragraph-16;
+    color: $color-natural-900;
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #383636;
+    border-radius: 50%;
+    animation: spinner 1.5s linear infinite;
+  }
+}

@@ -1,0 +1,39 @@
+@import "../../../src/scss/common/variables";
+
+.airlines-information__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 1px rgba($color-natural-900, 0.1);
+
+
+  &:not(:last-child) {
+    border-bottom: none;
+  }
+
+  &-name {
+    font: $font-heading-16;
+    font-weight: bold;
+  }
+
+  &-country {
+    font: $font-heading-16;
+    font-weight: bold;
+  }
+
+  &-logo {
+    text-align: center;
+
+    img {
+      height: 25px;
+    }
+  }
+
+  &:hover {
+    background: #d5d2d2;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,64 @@
+@import "fonts";
+@import "variables";
+
+body {
+  padding: 0;
+  margin: 0;
+  font: $font-paragraph-12;
+  color: $airlines-information-paragraph-color;
+}
+
+// Heading
+
+h1 {
+  font: $font-heading-22;
+  color: $airlines-information-heading-color;
+  padding: 0 35px 0;
+}
+
+h2 {
+  font: $font-heading-18;
+  color: $airlines-information-heading-color;
+  padding: 0 25px 0;
+}
+
+h3 {
+  font: $font-heading-16;
+  color: $airlines-information-heading-color;
+  padding: 0 25px 0;
+}
+
+// Links
+a {
+  color: initial;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.airlines-information-link {
+  color: $airlines-information-primary;
+  text-decoration: underline;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// text align
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-center {
+  text-align: center;
+}
+
+
+// Modal heading

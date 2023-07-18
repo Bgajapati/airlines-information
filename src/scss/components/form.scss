@@ -1,0 +1,50 @@
+@import "../../../src/scss/common/variables";
+
+.airline-information-form {
+  margin: 33px 0;
+  padding: 0 16px;
+
+  .form-control-container {
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+
+
+    .form-label {
+      display: block;
+      text-transform: uppercase;
+      padding-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .form-control {
+      padding: 12px;
+      width: 100%;
+      font: $font-paragraph-16;
+      color: $color-natural-700;
+      border: solid 1px $color-natural-50;
+    }
+
+    .form-button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 16px 28px;
+      border: none;
+      font: $font-heading-16;
+      font-weight: 600;
+      background: $color-natural-900;
+      color: $brand-bg;
+      cursor: pointer;
+    }
+
+    &-error {
+      .error {
+        margin-top: 6px;
+        color: $color-error-bg;
+        font: $font-heading-16;
+      }
+
+      // color: $color-error-bg;
+    }
+  }
+}

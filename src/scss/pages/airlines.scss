@@ -1,0 +1,64 @@
+@import "../common/variables";
+
+.airlines-information__main {
+  padding: 30px;
+
+  &-container {
+    max-width: 1250px;
+    margin: 0 auto;
+
+    &-heading-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: $color-natural-900;
+      padding: 15px;
+    }
+
+    &-heading {
+      font: $font-heading-22;
+      font-weight: bold;
+      text-align: center;
+      color: $brand-bg;
+    }
+
+    &-search-box {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+
+      &-label {
+        color: $brand-bg;
+        font: $font-paragraph-14;
+      }
+
+      &-input-field {
+        font: $font-paragraph-16;
+        color: $color-natural-700;
+        border: none;
+        padding: 5px 7px;
+        border-radius: 8px;
+
+        &:focus {
+          outline: none;
+          border: none;
+        }
+      }
+    }
+
+    &-add-airline-button {
+      border: solid 1px $brand-bg;
+      border-radius: 15px;
+      padding: 5px 15px;
+      font: $font-heading-18;
+      font-weight: 600;
+      background: rgba($brand-bg, 0.8);
+
+      &:hover {
+        background: rgba($brand-bg, 1);
+        cursor: pointer;
+      }
+    }
+
+  }
+}

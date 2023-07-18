@@ -1,0 +1,67 @@
+@import "src/scss/common/variables.scss";
+
+.airlines-information-form-field {
+  padding: 0;
+  margin-bottom: 15px;
+  width: 375px;
+  position: relative;
+
+  .airlines-information-field-label {
+    font: $font-heading-14;
+    text-align: left;
+    display: block;
+    min-width: 350px;
+    padding: 3px 0;
+  }
+  .airlines-information-field-label-value{
+    font: $font-paragraph-16;
+  }
+
+  .airlines-information-form-field-input {
+    min-width: 360px;
+    padding: 8px;
+    position: relative;
+
+    &-error {
+      border: solid 1px $airlines-information-error-color;
+    }
+
+    &-icon {
+      font: $font-paragraph-18;
+      position: absolute;
+      right: 0;
+      top: 35px;
+    }
+  }
+
+  .airlines-information-form-field-input-error-text {
+    color: $airlines-information-error-color;
+    margin-bottom: 15px;
+    padding: 2px 0;
+    text-align: left;
+    font: $font-paragraph-12;
+  }
+  .password-strength-note{
+    font: $font-paragraph-12;
+    color:$airlines-information-paragraph-gry-color;
+  }
+
+  .airlines-information-form-field-input-btn {
+    transition: all .2s ease;
+    background: $airlines-information-menu-bg-color;
+    border: none;
+    padding: 10px 25px;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      background: $airlines-information-primary;
+      color: #fff;
+    }
+    &.disabled{
+
+    }
+  }
+}

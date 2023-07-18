@@ -1,0 +1,90 @@
+@import "../common/variables";
+
+body {
+  padding: 0;
+  margin: 0;
+  font: $font-paragraph-12;
+  color: $color-natural-900;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+// Heading
+h1 {
+  font: $font-heading-22;
+  color: $color-natural-900;
+  padding: 0 35px 0;
+}
+
+h2 {
+  font: $font-heading-18;
+  color: $color-natural-900;
+  padding: 0 25px 0;
+}
+
+h3 {
+  font: $font-heading-16;
+  color: $color-natural-900;
+  padding: 0 25px 0;
+}
+
+// Links
+a {
+  color: initial;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+
+// text align
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-center {
+  text-align: center;
+}
+
+
+// Layout
+.airlines-information {
+
+  // logo
+  &__logo {
+
+    cursor: pointer;
+
+    &-heading {
+      font: $font-heading-22;
+      // border-bottom: solid 1px rgba($color-natural-900, 0.1);
+    }
+  }
+
+  // Header
+  &__header {
+    display: flex;
+    justify-content: center;
+
+  }
+
+  // Footer
+  &__footer {
+    padding: 20px 0;
+    font: $font-paragraph-12;
+    color: $color-natural-900;
+  }
+}
