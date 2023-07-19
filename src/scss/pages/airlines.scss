@@ -46,18 +46,47 @@
       }
     }
 
-    &-add-airline-button {
+    &-add-airline {
+      &-button {
+        border: solid 1px $brand-bg;
+        border-radius: 15px;
+        padding: 5px 15px;
+        font: $font-heading-18;
+        font-weight: 600;
+        background: rgba($color-natural-900, 0.8);
+        color: $brand-bg;
+
+        &:hover {
+          background: rgba($brand-bg, 1);
+          color: $color-natural-900;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .airlines-information__main-container-account-button {
       border: solid 1px $brand-bg;
       border-radius: 15px;
       padding: 5px 15px;
       font: $font-heading-18;
       font-weight: 600;
-      background: rgba($brand-bg, 0.8);
+      background: rgba($color-natural-900, 0.8);
+      color: $brand-bg;
 
       &:hover {
         background: rgba($brand-bg, 1);
+        color: $color-natural-900;
         cursor: pointer;
       }
+    }
+
+    .error-container {
+      margin: 40px;
+      padding: 30px;
+      text-align: center;
+      font: $font-paragraph-16;
+      color: $color-error-bg;
+      background: rgba($color-error-bg, .02);
     }
 
   }

@@ -29,6 +29,9 @@ function TextField({
         onChange={onChange}
         className={className}
       />
+      <div className="form-control-note">
+        Connected email address cannot be changed.
+      </div>
       {error && <div className="error">{error}</div>}
     </div>
   );

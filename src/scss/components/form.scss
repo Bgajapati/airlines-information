@@ -1,4 +1,4 @@
-@import "../../../src/scss/common/variables";
+@import "../common/variables";
 
 .airline-information-form {
   margin: 33px 0;
@@ -43,8 +43,12 @@
         color: $color-error-bg;
         font: $font-heading-16;
       }
+    }
 
-      // color: $color-error-bg;
+    .form-control-note {
+      font: $font-paragraph-12;
+      color: #0B0E1E;
+      padding: 6px 0 0;
     }
   }
 }

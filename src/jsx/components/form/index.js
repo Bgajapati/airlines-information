@@ -6,7 +6,7 @@ import Fields from "./Inputs";
 import clsx from "clsx";
 import { createYupSchema } from "../../../utils/yupSchemaCreator";
 
-function Form(props) {
+function AirlineLoginForm(props) {
   const { fields, cbSubmit, className, defaultValue } = props;
   const initialValues = {};
 
@@ -19,14 +19,26 @@ function Form(props) {
       }
     });
 
-  const yupSchema = fields && fields.reduce(createYupSchema, {});
-
-  const validateSchema = yup.object().shape(yupSchema);
+  const validationSchema = yup.object().shape(
+    fields.reduce((schema, field) => {
+      if (field.validationType && field.validations) {
+        return {
+          ...schema,
+          ...createYupSchema({
+            id: field.id,
+            validationType: field.validationType,
+            validations: field.validations,
+          }),
+        };
+      }
+      return schema;
+    }, {}),
+  );
 
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={validateSchema}
+      validationSchema={validationSchema}
       onSubmit={cbSubmit}
     >
       {(formikProps) => (
@@ -41,4 +53,4 @@ function Form(props) {
   );
 }
 
-export default Form;
+export default AirlineLoginForm;

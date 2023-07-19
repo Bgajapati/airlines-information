@@ -11,3 +11,7 @@ export const fetchAirline = ({ id }) => {
 export const createAirline = (payload) => {
   return post(endpoints.airlineList, payload);
 };
+
+export const loginAccount = (payload) => {
+  return post(endpoints.airlineList, payload);
+};

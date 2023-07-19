@@ -12,6 +12,10 @@ export const formSchema = [
         type: "required",
         params: ["Id is required"],
       },
+      {
+        type: "typeError",
+        params: ["Id should be a valid format"],
+      },
     ],
     disabled: true,
   },
@@ -103,6 +107,10 @@ export const formSchema = [
         type: "required",
         params: ["Website is required"],
       },
+      {
+        type: "typeError",
+        params: ["Website should be a valid format"],
+      },
     ],
   },
   {
@@ -117,6 +125,10 @@ export const formSchema = [
       {
         type: "required",
         params: ["Established is required"],
+      },
+      {
+        type: "typeError",
+        params: ["Invalid established year"],
       },
     ],
   },

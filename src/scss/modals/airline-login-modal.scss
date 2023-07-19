@@ -1,6 +1,6 @@
-@import "../../../src/scss/common/variables";
+@import "../common/variables";
 
-.airline-detail-modal-heading {
+.airline-login-modal-heading {
   margin: 0 25px;
   padding: 15px 0;
   text-align: center;
@@ -8,7 +8,7 @@
   font: $font-paragraph-16;
 }
 
-.airline-detail-modal-container {
+.airline-login-modal-box {
   padding: 48px;
   max-height: 560px;
   overflow-y: auto;

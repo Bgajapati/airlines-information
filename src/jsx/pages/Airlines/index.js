@@ -3,9 +3,13 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 // Components
-import { AirlineDetailModal } from "../../components/modals/AirlineDetailModal";
+import { AirlinesHeading } from "./heading";
 import { List } from "../../components/list";
 import { LoadingSpinner } from "../../components/LoadingSpinner";
+
+// Modals
+import { AirlineDetailModal } from "../../modals/AirlineDetailModal";
+import { AirlineLoginModal } from "../../modals/AirlineLoginModal";
 
 // Action
 import {
@@ -19,7 +23,8 @@ export const Airlines = () => {
 
   // Hooks - useState
   const [searchQuery, setSearchQuery] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
+  const [isDetailModalOpen, setDetailModalOpen] = useState(false);
+  const [isLoginModalOpen, setLoginModalOpen] = useState(false);
   const [isCreateModal, setIsCreateModal] = useState(false);
 
   // Hooks - Selector
@@ -34,24 +39,24 @@ export const Airlines = () => {
 
   const airlinesList = useMemo(() => {
     return airlines.filter((airline) => airline.name.includes(searchQuery));
-  }, [searchQuery]);
+  }, [searchQuery, airlines]);
 
   const finalList = searchQuery ? airlinesList : airlines;
 
   useEffect(() => {
     dispatch(getAirlinesList());
-  }, []);
+  }, [dispatch]);
 
   const handleListClick = (id) => {
     const payload = { id };
     setIsCreateModal(false);
     dispatch(getAirline(payload));
     setTimeout(() => {
-      setIsOpen(true);
+      setDetailModalOpen(true);
     }, 500);
   };
   const handleClose = () => {
-    setIsOpen(false);
+    setDetailModalOpen(false);
   };
   const handleSearchAirline = (e) => {
     setSearchQuery(e.target.value);
@@ -59,41 +64,27 @@ export const Airlines = () => {
 
   const handleAddAirline = () => {
     setIsCreateModal(true);
-    setIsOpen(true);
+    setDetailModalOpen(true);
+  };
+
+  const handleLogin = () => {
+    setLoginModalOpen(true);
+    console.log("Testing Login");
+  };
+
+  const handleLoginModalClose = () => {
+    setLoginModalOpen(false);
   };
 
   return (
     <>
       <main className="airlines-information__main">
         <div className="airlines-information__main-container">
-          <div className="airlines-information__main-container-heading-container">
-            <div className="airlines-information__main-container-heading">
-              Airlines List
-            </div>
-            <div className="airlines-information__main-container-search-box">
-              <label className="airlines-information__main-container-search-box-label">
-                Search:
-              </label>
-              <div className="airlines-information__main-container-search-box-input">
-                <input
-                  className="airlines-information__main-container-search-box-input-field"
-                  type="text"
-                  placeholder="Flight name"
-                  onChange={handleSearchAirline}
-                  disabled={airlinesLoading}
-                />
-              </div>
-            </div>
-            <div className="airlines-information__main-container-add-airline">
-              <button
-                className="airlines-information__main-container-add-airline-button"
-                onClick={handleAddAirline}
-              >
-                Add Airline
-              </button>
-            </div>
-          </div>
-
+          <AirlinesHeading
+            handleSearchAirline={handleSearchAirline}
+            handleAddAirline={handleAddAirline}
+            handleLogin={handleLogin}
+          />
           <div className="airlines-information__main-container-lists">
             {airlinesLoading === true && <LoadingSpinner />}
             {airlinesLoading === false &&
@@ -106,15 +97,29 @@ export const Airlines = () => {
                   />
                 ) : null,
               )}
+            {airlinesLoading === false && finalList.length === 0 && (
+              <div className="error-container">
+                {" "}
+                API server not responding. Please try again
+              </div>
+            )}
           </div>
         </div>
       </main>
+
+      {/* Airline Detail Modal */}
       <AirlineDetailModal
-        isOpen={isOpen}
+        isOpen={isDetailModalOpen}
         onClose={handleClose}
         airlineData={isCreateModal ? {} : airline}
         isLoading={airlineLoading}
         isCreateModal={isCreateModal}
+      />
+
+      {/* Airline Login Modal */}
+      <AirlineLoginModal
+        isOpen={isLoginModalOpen}
+        onClose={handleLoginModalClose}
       />
     </>
   );

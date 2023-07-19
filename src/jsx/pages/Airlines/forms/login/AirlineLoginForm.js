@@ -5,12 +5,12 @@ import { useDispatch } from "react-redux";
 import { formSchema } from "./schema";
 
 // Components
-import Form from "../../../components/form";
+import Form from "../../../../components/form";
 
 // Services
-import { addAirline } from "../../../../services/airlines/actions";
+import { addAirline } from "../../../../../services/airlines/actions";
 
-const AirlineDetailsForms = ({ initialFormData }) => {
+const AirlineLoginForms = ({ initialFormData }) => {
   const dispatch = useDispatch();
 
   // Handler
@@ -29,4 +29,4 @@ const AirlineDetailsForms = ({ initialFormData }) => {
   );
 };
 
-export default AirlineDetailsForms;
+export default AirlineLoginForms;

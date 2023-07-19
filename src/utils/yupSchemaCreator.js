@@ -1,18 +1,17 @@
-import * as yup from 'yup';
+import * as yup from "yup";
 
-export function createYupSchema(schema, config) {
-    const {id, validationType, validations = []} = config;
-    if (!yup[validationType]) {
-        return schema;
+export function createYupSchema(config) {
+  const { id, validationType, validations = [] } = config;
+  if (!yup[validationType]) {
+    return null;
+  }
+  let validator = yup[validationType]();
+  validations.forEach((validation) => {
+    const { params, type } = validation;
+    if (!validator[type]) {
+      return;
     }
-    let validator = yup[validationType]();
-    validations.forEach((validation) => {
-        const {params, type} = validation;
-        if (!validator[type] || !params) {
-            return;
-        }
-        validator = validator[type](...params);
-    });
-    schema[id] = validator;
-    return schema;
+    validator = validator[type](...params);
+  });
+  return { [id]: validator };
 }

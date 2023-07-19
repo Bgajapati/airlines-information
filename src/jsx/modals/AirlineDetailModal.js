@@ -1,10 +1,10 @@
-import "../../../scss/components/modal.scss";
+import "../../scss/modals/airline-detail-modal.scss";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import ModalClose from "@mui/joy/ModalClose";
 import Modal from "@mui/material/Modal";
-import AirlineDetailsForms from "../../pages/Airlines/forms/AirlineDetailsForm";
-import { LoadingSpinner } from "../LoadingSpinner";
+import AirlineDetailsForms from "../pages/Airlines/forms/details/AirlineDetailsForm";
+import { LoadingSpinner } from "../components/LoadingSpinner";
 import { Fade } from "@mui/material";
 
 const style = {
@@ -44,8 +44,8 @@ export const AirlineDetailModal = ({
               <div className="airline-detail-modal-heading">
                 {isCreateModal ? "Add" : "Edit"} {name} Airline Details
               </div>
-              <div className="airline-detail-modal-container">
-                <h2 className="airline-detail-modal-container-heading">
+              <div className="airline-detail-modal-box">
+                <h2 className="airline-detail-modal-box-heading">
                   {name} Airline Details
                 </h2>
 
